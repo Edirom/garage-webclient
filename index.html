@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Research Data Garage</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<div id="grey-modal-background" class="hidden"></div>
+	<div id="header">
+	</div>
+	<div class="row">
+		<h1>Research Data Garage</h1>
+	</div>
+	<div class="row">
+		<div class="column">
+			<section>
+				<div class="card">
+					<div class="container">
+						<h2>Validation</h1>
+							<p>Validate files</p>
+							<div data-container="books-table"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="column">
+			<section>
+				<div class="card">
+					<div class="container">
+						<h2>Conversion</h1>
+							<p>Convert between formats</p>
+							<div data-container="books-table-less"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column">
+			<section>
+				<div class="card">
+					<div class="container">
+						<h2>Modification</h1>
+							<p>Modify, enrich and enhance files with additional information</p>
+							<div data-container="books-table-less"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="column">
+			<section>
+				<div class="card">
+					<div class="container">
+						<h2>Schema Customization</h1>
+							<p>Customize schemas</p>
+							<div data-container="books-table-less"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="footer">
+		<p><a href="https://github.com/Edirom/garage-webclient" target="_blank">About</a> |
+			<a href="https://meigarage.edirom.de/ege-webservice/" target="_blank">MEIGarage API</a>
+			|
+			<a href="https://teigarage.tei-c.de/ege-webservice/" target="_blank">TEIGarage API</a>
+			| <a href="https://github.com/Edirom/garage-webclient/issues" target="_blank">Contact</a>
+		</p>
+	</div>
+
+	<script type="application/javascript" src="js/application.js"></script>
+	<script type="application/javascript">
+		/* <input-data-type id="Scores:MEI 5.0 Document:mei50,text/xml" xlink:href="https://meigarage.edirom.de/ege-webservice/Conversions/mei50%3Atext%3Axml/" /> */
+		let validations = [
+			new Book({
+				nr: 1,
+				id: 'mei50',
+				title: 'MEI 5.0 Document',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/mei50'
+			}),
+			new Book({
+				nr: 2,
+				id: 'mei51',
+				title: 'MEI 5.1 Document',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/mei51'
+			}),
+			new Book({
+				nr: 3,
+				id: 'lido-latest',
+				title: 'LIDO latest version',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-latest'
+			}),
+			new Book({
+				nr: 4,
+				id: 'lido-10',
+				title: 'LIDO 1.0 version',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-10'
+			}),
+			new Book({
+				nr: 5,
+				id: 'lido-11',
+				title: 'LIDO 1.1 version',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-11'
+			}),
+			new Book({
+				nr: 6,
+				id: 'lido-architecture',
+				title: 'LIDO Handbook “Architecture and Other Immovable Works”',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-architecture'
+			}),
+			new Book({
+				nr: 7,
+				id: 'lido-eodem',
+				title: 'LIDO EODEM (Exhibition Object Data Exchange Model)',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-eodem'
+			}),
+			new Book({
+				nr: 8,
+				id: 'lido-mrrmc',
+				title: 'Minimum Record Recommendation for Museums and Collections v. 1.1',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-mrrmc'
+			}),
+			new Book({
+				nr: 9,
+				id: 'lido-finna',
+				title: 'Finna LIDO Profile',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-finna'
+			}),
+			new Book({
+				nr: 10,
+				id: 'lido-painting',
+				title: 'LIDO Handbook “Painting and Sculpture”',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/validation/lido-painting'
+			})
+		];
+
+
+		const bookTables =
+			document.querySelectorAll('[data-container="books-table"]');
+		for (let i = 0; i < bookTables.length; i++) {
+			new BooksTable({
+				books: validations,
+				containerElement: bookTables[i]
+			});
+		}
+
+		let conversions = [
+			new Book({
+				nr: 1,
+				id: 'mei50',
+				title: 'MEI 5.0 Document',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/conversions/mei50'
+			}),
+			new Book({
+				nr: 2,
+				id: 'mei51',
+				title: 'MEI 5.1 Document',
+				mimetype: 'text/xml',
+				url: 'https://meigarage.edirom.de/conversion/mei51'
+			})
+		]
+
+		const bookTablesLess =
+		document.querySelectorAll('[data-container="books-table-less"]');
+		for (let i = 0; i < bookTables < 3; i++) {
+			new BooksTable({
+				books: conversions,
+				containerElement: bookTablesLess[i]
+			});
+		}
+
+	</script>
+</body>
+
+</html>

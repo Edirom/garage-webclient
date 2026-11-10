@@ -1,0 +1,11 @@
+*
+!*/
+!.gitignore
+!*.gitattributes
+!*.github
+!*.html
+!*.js
+!*.css
+!Dockerfile
+!*.conf
+!*.yml
